@@ -75,6 +75,11 @@ namespace HauntedHouseSoftware.TextShredder
             this.openTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.changePasswordTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveEncryptedTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip.SuspendLayout();
             this.encryptionDecryptionTabPage.SuspendLayout();
             this.EncryptionTab.SuspendLayout();
@@ -132,8 +137,6 @@ namespace HauntedHouseSoftware.TextShredder
             // 
             this.deleteTextAfterEncrypt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteTextAfterEncrypt.AutoSize = true;
-            this.deleteTextAfterEncrypt.Checked = true;
-            this.deleteTextAfterEncrypt.CheckState = System.Windows.Forms.CheckState.Checked;
             this.deleteTextAfterEncrypt.Location = new System.Drawing.Point(180, 437);
             this.deleteTextAfterEncrypt.Name = "deleteTextAfterEncrypt";
             this.deleteTextAfterEncrypt.Size = new System.Drawing.Size(145, 17);
@@ -160,7 +163,7 @@ namespace HauntedHouseSoftware.TextShredder
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.encryptedText.BackColor = System.Drawing.Color.White;
-            this.encryptedText.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encryptedText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.encryptedText.Location = new System.Drawing.Point(9, 254);
             this.encryptedText.Multiline = true;
             this.encryptedText.Name = "encryptedText";
@@ -193,7 +196,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.textToEncrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textToEncrypt.BackColor = System.Drawing.Color.White;
-            this.textToEncrypt.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textToEncrypt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textToEncrypt.Location = new System.Drawing.Point(9, 34);
             this.textToEncrypt.Multiline = true;
             this.textToEncrypt.Name = "textToEncrypt";
@@ -261,7 +264,7 @@ namespace HauntedHouseSoftware.TextShredder
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.decryptedText.BackColor = System.Drawing.Color.White;
-            this.decryptedText.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decryptedText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decryptedText.Location = new System.Drawing.Point(9, 254);
             this.decryptedText.Multiline = true;
             this.decryptedText.Name = "decryptedText";
@@ -294,7 +297,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.textToDecrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textToDecrypt.BackColor = System.Drawing.Color.White;
-            this.textToDecrypt.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textToDecrypt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textToDecrypt.Location = new System.Drawing.Point(9, 34);
             this.textToDecrypt.Multiline = true;
             this.textToDecrypt.Name = "textToDecrypt";
@@ -332,6 +335,9 @@ namespace HauntedHouseSoftware.TextShredder
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.saveEncryptedTextFileToolStripMenuItem,
+            this.toolStripSeparator2,
             this.setPasswordToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
@@ -342,19 +348,19 @@ namespace HauntedHouseSoftware.TextShredder
             // setPasswordToolStripMenuItem
             // 
             this.setPasswordToolStripMenuItem.Name = "setPasswordToolStripMenuItem";
-            this.setPasswordToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.setPasswordToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.setPasswordToolStripMenuItem.Text = "Set Password";
             this.setPasswordToolStripMenuItem.Click += new System.EventHandler(this.setPasswordToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -474,6 +480,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.openTextFileToolStripButton.Name = "openTextFileToolStripButton";
             this.openTextFileToolStripButton.Size = new System.Drawing.Size(30, 30);
             this.openTextFileToolStripButton.Text = "Open a text file.";
+            this.openTextFileToolStripButton.Click += new System.EventHandler(this.openTextFileToolStripButton_Click);
             // 
             // saveTextFileToolStripButton
             // 
@@ -484,6 +491,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.saveTextFileToolStripButton.Name = "saveTextFileToolStripButton";
             this.saveTextFileToolStripButton.Size = new System.Drawing.Size(30, 30);
             this.saveTextFileToolStripButton.Text = "Save encrypted text to a file.";
+            this.saveTextFileToolStripButton.Click += new System.EventHandler(this.saveTextFileToolStripButton_Click);
             // 
             // changePasswordTextFileToolStripButton
             // 
@@ -494,6 +502,34 @@ namespace HauntedHouseSoftware.TextShredder
             this.changePasswordTextFileToolStripButton.Name = "changePasswordTextFileToolStripButton";
             this.changePasswordTextFileToolStripButton.Size = new System.Drawing.Size(30, 30);
             this.changePasswordTextFileToolStripButton.Text = "Set the password.";
+            this.changePasswordTextFileToolStripButton.Click += new System.EventHandler(this.changePasswordTextFileToolStripButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(197, 6);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.openToolStripMenuItem.Text = "&Open Plain Text File";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveEncryptedTextFileToolStripMenuItem
+            // 
+            this.saveEncryptedTextFileToolStripMenuItem.Name = "saveEncryptedTextFileToolStripMenuItem";
+            this.saveEncryptedTextFileToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.saveEncryptedTextFileToolStripMenuItem.Text = "S&ave Encrypted Text File";
+            this.saveEncryptedTextFileToolStripMenuItem.Click += new System.EventHandler(this.saveEncryptedTextFileToolStripMenuItem_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "Text File |*.txt|All Files|*.*";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Text File |*.txt|All Files|*.*";
             // 
             // TextShredderMainForm
             // 
@@ -568,6 +604,11 @@ namespace HauntedHouseSoftware.TextShredder
         private System.Windows.Forms.ToolStripButton openTextFileToolStripButton;
         private System.Windows.Forms.ToolStripButton saveTextFileToolStripButton;
         private System.Windows.Forms.ToolStripButton changePasswordTextFileToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveEncryptedTextFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

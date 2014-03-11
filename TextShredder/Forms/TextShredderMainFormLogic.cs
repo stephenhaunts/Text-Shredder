@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using HauntedHouseSoftware.TextShredder.ClientLibrary;
 using HauntedHouseSoftware.TextShredder.Forms;
 using System.Drawing;
+using System.IO;
 
 namespace HauntedHouseSoftware.TextShredder
 {
@@ -33,7 +34,7 @@ namespace HauntedHouseSoftware.TextShredder
         private bool _passwordSet;
         private PasswordEntry _passwordEntry;
         private ApplicationSettings _settings = new ApplicationSettings();
-        private bool _deleteTextAfterEncrypt = true;
+        private bool _deleteTextAfterEncrypt = false;
 
         private bool SetPassword(bool confirmPassword)
         {
@@ -223,6 +224,36 @@ namespace HauntedHouseSoftware.TextShredder
             _settings.ForegroundColorBlue = textToEncrypt.ForeColor.B;
          
             SettingsWriter.WriteSettingsFile(_settings);
+        }
+
+        private void OpenTextFile()
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    textToEncrypt.Text = File.ReadAllText(openFileDialog.FileName);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(String.Format("There was an error reading from the file <{0}>", openFileDialog.FileName), "Error Reading from File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void SaveTextFile()
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    File.WriteAllText(saveFileDialog.FileName, encryptedText.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(String.Format("There was an error saving the file <{0}>", saveFileDialog.FileName), "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
