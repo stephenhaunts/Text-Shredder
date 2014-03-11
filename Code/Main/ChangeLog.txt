@@ -1,0 +1,21 @@
+
+Version 1.0
+------------
+
+[X] - Setup passwords. These require double entry to confirm. Only password 1 is mandetory.
+
+[X] - Allow the use of an on screen keyboard to guard against key loggers.
+
+[X] - Allow text to be in encrypted usign the current set password.
+
+[X] - Allow text to decrypted using the current set password.
+
+[X] - Implement a 'copy cipher text to clipboard' button.
+
+[X] - Implement a 'paste cipher text to screen' button.
+
+[X] - Implement a 'delete plain text from view' button that removes the plain text from the screen once it has been encrypted.
+
+[X] - Implement basic themes to make it harder for someone to see what is happening over your shoulder.
+
+[X] - Save settings on application exit. This includes the screen size and co-ordinates, plus the window themes.
