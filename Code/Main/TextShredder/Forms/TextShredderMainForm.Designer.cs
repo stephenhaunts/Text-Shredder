@@ -56,6 +56,9 @@ namespace HauntedHouseSoftware.TextShredder
             this.decryptButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveEncryptedTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.setPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,17 +73,16 @@ namespace HauntedHouseSoftware.TextShredder
             this.lowContrastDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowContrastLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.openTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.changePasswordTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveEncryptedTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllEncrypted = new System.Windows.Forms.Button();
+            this.clearAllDecrypt = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             this.encryptionDecryptionTabPage.SuspendLayout();
             this.EncryptionTab.SuspendLayout();
@@ -120,6 +122,7 @@ namespace HauntedHouseSoftware.TextShredder
             // EncryptionTab
             // 
             this.EncryptionTab.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.EncryptionTab.Controls.Add(this.clearAllEncrypted);
             this.EncryptionTab.Controls.Add(this.deleteTextAfterEncrypt);
             this.EncryptionTab.Controls.Add(this.copytoClipBoard);
             this.EncryptionTab.Controls.Add(this.encryptedText);
@@ -138,7 +141,7 @@ namespace HauntedHouseSoftware.TextShredder
             // 
             this.deleteTextAfterEncrypt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteTextAfterEncrypt.AutoSize = true;
-            this.deleteTextAfterEncrypt.Location = new System.Drawing.Point(180, 437);
+            this.deleteTextAfterEncrypt.Location = new System.Drawing.Point(261, 437);
             this.deleteTextAfterEncrypt.Name = "deleteTextAfterEncrypt";
             this.deleteTextAfterEncrypt.Size = new System.Drawing.Size(145, 17);
             this.deleteTextAfterEncrypt.TabIndex = 6;
@@ -221,6 +224,7 @@ namespace HauntedHouseSoftware.TextShredder
             // DecryptionTab
             // 
             this.DecryptionTab.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DecryptionTab.Controls.Add(this.clearAllDecrypt);
             this.DecryptionTab.Controls.Add(this.deletePlainText);
             this.DecryptionTab.Controls.Add(this.pasteFromClipboard);
             this.DecryptionTab.Controls.Add(this.decryptedText);
@@ -346,6 +350,25 @@ namespace HauntedHouseSoftware.TextShredder
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.openToolStripMenuItem.Text = "&Open Plain Text File";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveEncryptedTextFileToolStripMenuItem
+            // 
+            this.saveEncryptedTextFileToolStripMenuItem.Name = "saveEncryptedTextFileToolStripMenuItem";
+            this.saveEncryptedTextFileToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.saveEncryptedTextFileToolStripMenuItem.Text = "S&ave Encrypted Text File";
+            this.saveEncryptedTextFileToolStripMenuItem.Click += new System.EventHandler(this.saveEncryptedTextFileToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(197, 6);
+            // 
             // setPasswordToolStripMenuItem
             // 
             this.setPasswordToolStripMenuItem.Name = "setPasswordToolStripMenuItem";
@@ -454,10 +477,18 @@ namespace HauntedHouseSoftware.TextShredder
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // helpMenuItem
+            // 
+            this.helpMenuItem.Name = "helpMenuItem";
+            this.helpMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.helpMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.helpMenuItem.Text = "Help";
+            this.helpMenuItem.Click += new System.EventHandler(this.helpMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -506,25 +537,6 @@ namespace HauntedHouseSoftware.TextShredder
             this.changePasswordTextFileToolStripButton.Text = "Set the password.";
             this.changePasswordTextFileToolStripButton.Click += new System.EventHandler(this.changePasswordTextFileToolStripButton_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(197, 6);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.openToolStripMenuItem.Text = "&Open Plain Text File";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // saveEncryptedTextFileToolStripMenuItem
-            // 
-            this.saveEncryptedTextFileToolStripMenuItem.Name = "saveEncryptedTextFileToolStripMenuItem";
-            this.saveEncryptedTextFileToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.saveEncryptedTextFileToolStripMenuItem.Text = "S&ave Encrypted Text File";
-            this.saveEncryptedTextFileToolStripMenuItem.Click += new System.EventHandler(this.saveEncryptedTextFileToolStripMenuItem_Click);
-            // 
             // openFileDialog
             // 
             this.openFileDialog.Filter = "Text File |*.txt|All Files|*.*";
@@ -533,13 +545,29 @@ namespace HauntedHouseSoftware.TextShredder
             // 
             this.saveFileDialog.Filter = "Text File |*.txt|All Files|*.*";
             // 
-            // helpMenuItem
+            // clearAllEncrypted
             // 
-            this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.helpMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.helpMenuItem.Text = "Help";
-            this.helpMenuItem.Click += new System.EventHandler(this.helpMenuItem_Click);
+            this.clearAllEncrypted.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.clearAllEncrypted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearAllEncrypted.Location = new System.Drawing.Point(174, 431);
+            this.clearAllEncrypted.Name = "clearAllEncrypted";
+            this.clearAllEncrypted.Size = new System.Drawing.Size(80, 23);
+            this.clearAllEncrypted.TabIndex = 7;
+            this.clearAllEncrypted.Text = "Clear All";
+            this.clearAllEncrypted.UseVisualStyleBackColor = true;
+            this.clearAllEncrypted.Click += new System.EventHandler(this.clearAllEncrypted_Click);
+            // 
+            // clearAllDecrypt
+            // 
+            this.clearAllDecrypt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.clearAllDecrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearAllDecrypt.Location = new System.Drawing.Point(323, 431);
+            this.clearAllDecrypt.Name = "clearAllDecrypt";
+            this.clearAllDecrypt.Size = new System.Drawing.Size(80, 23);
+            this.clearAllDecrypt.TabIndex = 11;
+            this.clearAllDecrypt.Text = "Clear All";
+            this.clearAllDecrypt.UseVisualStyleBackColor = true;
+            this.clearAllDecrypt.Click += new System.EventHandler(this.clearAllDecrypt_Click);
             // 
             // TextShredderMainForm
             // 
@@ -620,6 +648,8 @@ namespace HauntedHouseSoftware.TextShredder
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
+        private System.Windows.Forms.Button clearAllEncrypted;
+        private System.Windows.Forms.Button clearAllDecrypt;
     }
 }
 
