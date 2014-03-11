@@ -191,5 +191,30 @@ namespace HauntedHouseSoftware.TextShredder
         {
             decryptedText.Text = "";
         }
+
+        private void openTextFileToolStripButton_Click(object sender, EventArgs e)
+        {
+            OpenTextFile();
+        }
+
+        private void saveTextFileToolStripButton_Click(object sender, EventArgs e)
+        {
+            SaveTextFile();
+        }
+
+        private void changePasswordTextFileToolStripButton_Click(object sender, EventArgs e)
+        {
+            SetPasswordAndStatusBar(true);
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenTextFile();
+        }
+
+        private void saveEncryptedTextFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveTextFile();
+        }
     }
 }
