@@ -220,6 +220,18 @@ namespace HauntedHouseSoftware.TextShredder
         private void helpMenuItem_Click(object sender, EventArgs e)
         {
             LoadHelpPage();
+        }
+
+        private void clearAllDecrypt_Click(object sender, EventArgs e)
+        {
+            textToDecrypt.Text = "";
+            decryptedText.Text = "";
+        }
+
+        private void clearAllEncrypted_Click(object sender, EventArgs e)
+        {
+            textToEncrypt.Text = "";
+            encryptedText.Text = "";
         }      
     }
 }
