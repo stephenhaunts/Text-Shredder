@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextShredder.ClientLibrary.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BB547A5F-68BB-43A4-BCCB-A7A8CA0A3435}"
 	ProjectSection(SolutionItems) = preProject
+		ChangeLog.txt = ChangeLog.txt
 		CodeAnalysis.ruleset = CodeAnalysis.ruleset
+		GNU3-0.txt = GNU3-0.txt
 	EndProjectSection
 EndProject
 Global
