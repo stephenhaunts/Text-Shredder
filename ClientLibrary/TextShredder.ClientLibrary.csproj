@@ -57,6 +57,8 @@
     <Compile Include="CryptoProviders\SaltParseException.cs" />
     <Compile Include="CryptoProviders\SecureHash.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="GZipCompression.cs" />
+    <Compile Include="ICompression.cs" />
     <Compile Include="Passwords\IPassword.cs" />
     <Compile Include="Passwords\Password.cs" />
     <Compile Include="Passwords\PasswordScore.cs" />

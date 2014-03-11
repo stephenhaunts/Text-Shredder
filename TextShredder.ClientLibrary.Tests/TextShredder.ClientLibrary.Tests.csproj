@@ -60,6 +60,7 @@
     <Compile Include="CryptoProviders\BCryptHashTests.cs" />
     <Compile Include="CryptoProviders\SecureHashTests.cs" />
     <Compile Include="CryptoProviders\TestBCrypt.cs" />
+    <Compile Include="GZipCompressionTests.cs" />
     <Compile Include="Passwords\PasswordStrengthTests.cs" />
     <Compile Include="Passwords\PasswordTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
