@@ -27,6 +27,8 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 {
     public sealed class BlockEncrypter
     {
+        private static ICompression _compressor = new GZipCompression();
+
         private BlockEncrypter() { }
 
         public static string EncryptBlock(string textToEncrypt, byte [] password)
@@ -48,7 +50,9 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 byte[] salt = new byte[32];
                 rngCsp.GetBytes(salt);
 
-                var encrpytedMessage = aes.Encrypt(ByteHelpers.GetBytes(textToEncrypt), Convert.ToBase64String(password), salt, 45000);
+                byte[] compressed = _compressor.Compress(ByteHelpers.GetBytes(textToEncrypt));
+
+                var encrpytedMessage = aes.Encrypt(compressed, Convert.ToBase64String(password), salt, 45000);
                 var fullMessage = ByteHelpers.CreateSpecialByteArray(encrpytedMessage.Length + 32);
                 fullMessage = ByteHelpers.Combine(salt, encrpytedMessage);
 
@@ -77,7 +81,9 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
             Buffer.BlockCopy(convertFromBase64String, 0, salt, 0, 32);
             Buffer.BlockCopy(convertFromBase64String, 32, message, 0, convertFromBase64String.Length - 32);
 
-            return ByteHelpers.GetString(aes.Decrypt(message, Convert.ToBase64String(password), salt, 45000));           
+            byte[] deCompressed = _compressor.Decompress(aes.Decrypt(message, Convert.ToBase64String(password), salt, 45000));
+
+            return ByteHelpers.GetString(deCompressed);           
         }
     }
 }
