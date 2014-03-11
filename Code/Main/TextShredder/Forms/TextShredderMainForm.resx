@@ -123,7 +123,43 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>126, 17</value>
   </metadata>
+  <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>241, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="openTextFileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFLSURBVEhL7ZFBqoJQFIZDEARBUBDCSCgIiiKQaBo0cQvR
+        xKGTBi0gJJw2dgeJYraMdtAS2kDpAv7HvTzBZz7LG2/wwB8+PJ5zOR/c22ryP5OmKRaLBQzD+JX9fo/v
+        4+whoul0+hLHcT6XjcdjvMNut/tMNhwO8Yr5fA7LsuB5HrtsMBigitlshiRJPr+6Xq+HKtbrNZWQ+nw+
+        swt1XUcZk8kEq9UKruvS5Vk/jmM2WafTQZHRaPTjukidn59Op/qydruNItvtFrfb7amfJ4qiejJVVVHk
+        cDjQJWWzPHTBu1EUBUU2mw1dUjbLCMOwnkiSJBTpdrt4PB64Xq+4XC6U/DwIgnoSElEUUYamabBtG77v
+        06VZP/uvHUEQUIVpmnQxqY/HI5uEhOd5VEEe/X6/U0H2ZQp5WI7jKpFlGcvlEv1+n13UpMkfpdX6AjoW
+        MxusFAEmAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="saveTextFileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE2SURBVEhL7ZJRqoJAGIVFEAQhKAgEQfJBCYJAKCGEHkMQ
+        JDfQOoQQF1MoZstwB27EagHnMsMQBZlO0cMFP/ge/pk5/3kZoed/c7vdsF6vYdt2o0mSgD3/HFI0n89b
+        jeP4+7LZbIYu7vf778p2ux2WyyWm02mrURR9V3a9XhEEAUzTbJVF+DEMA+fzGaTM932Q+Z0sxo+u6yAW
+        RUHLPM+jc5MsxgdZrGna3dPpRMs2m83T+aMs2g1VVdFknue0zLKsl/dsRTfG4zHeSd5st9vGu86MRiM0
+        mWUZLpcLJpPJy3u2ohtVVaEsS+pgMLibpiktcV336fxRtoIfRVFAPB6PtGS1WtG5SRbjR5ZlHA4H1HUN
+        x3FA5ney2GeQksViAUmSWmURfsIwxHA4hCiKrXJ/hp6eHyIIf+lqPyp72TTtAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="changePasswordTextFileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADnSURBVEhL7ZMxCoNAEEVFsBAEC8FCECwEC0GwE/QuVt7M
+        Xg/gQbT2Bl7ghy+TEE2QzW6TwgcPmT/7p9O6uflflmVB13Uoy/IlZ+byxJx5nlHXNYqi+JA59/LUjLZt
+        kec5qqrCOI77YX45M+denpqRZRnoMAyHg9M07TmVyIw0TUG3bTsc5PzcSWRGkiSgMh642v1MHMegMh64
+        2imzriuiKFJWanqEYQhVpaJHEAQ4y5/1Wy4VPXzfx7tN0+wH+T3v9oIunufhbN/3HxmVih6u6+LsVa6N
+        4zhQVSp62LYNVaVyc3OFZT0AbwzFDp7iobgAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAEBAAAAEAIABoBAAAVgAAACAgAAABACAAqBAAAL4EAAAwMAAAAQAgAKglAABmFQAAQEAAAAEA

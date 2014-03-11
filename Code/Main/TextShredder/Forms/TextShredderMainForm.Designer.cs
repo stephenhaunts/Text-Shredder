@@ -39,6 +39,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.encryptionDecryptionTabPage = new System.Windows.Forms.TabControl();
             this.EncryptionTab = new System.Windows.Forms.TabPage();
+            this.deleteTextAfterEncrypt = new System.Windows.Forms.CheckBox();
             this.copytoClipBoard = new System.Windows.Forms.Button();
             this.encryptedText = new System.Windows.Forms.TextBox();
             this.encryptedTextLabel = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.textToEncrypt = new System.Windows.Forms.TextBox();
             this.encryptButton = new System.Windows.Forms.Button();
             this.DecryptionTab = new System.Windows.Forms.TabPage();
+            this.deletePlainText = new System.Windows.Forms.Button();
             this.pasteFromClipboard = new System.Windows.Forms.Button();
             this.decryptedText = new System.Windows.Forms.TextBox();
             this.decryptedTextLabel = new System.Windows.Forms.Label();
@@ -69,13 +71,16 @@ namespace HauntedHouseSoftware.TextShredder
             this.lowContrastLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteTextAfterEncrypt = new System.Windows.Forms.CheckBox();
-            this.deletePlainText = new System.Windows.Forms.Button();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.openTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.saveTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.changePasswordTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.encryptionDecryptionTabPage.SuspendLayout();
             this.EncryptionTab.SuspendLayout();
             this.DecryptionTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -95,14 +100,14 @@ namespace HauntedHouseSoftware.TextShredder
             // 
             // encryptionDecryptionTabPage
             // 
-            this.encryptionDecryptionTabPage.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.encryptionDecryptionTabPage.Controls.Add(this.EncryptionTab);
             this.encryptionDecryptionTabPage.Controls.Add(this.DecryptionTab);
             this.encryptionDecryptionTabPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.encryptionDecryptionTabPage.Location = new System.Drawing.Point(0, 24);
+            this.encryptionDecryptionTabPage.Location = new System.Drawing.Point(0, 57);
+            this.encryptionDecryptionTabPage.Multiline = true;
             this.encryptionDecryptionTabPage.Name = "encryptionDecryptionTabPage";
             this.encryptionDecryptionTabPage.SelectedIndex = 0;
-            this.encryptionDecryptionTabPage.Size = new System.Drawing.Size(838, 519);
+            this.encryptionDecryptionTabPage.Size = new System.Drawing.Size(838, 486);
             this.encryptionDecryptionTabPage.TabIndex = 3;
             this.encryptionDecryptionTabPage.SelectedIndexChanged += new System.EventHandler(this.encryptionDecryptionTabPage_SelectedIndexChanged);
             // 
@@ -116,18 +121,32 @@ namespace HauntedHouseSoftware.TextShredder
             this.EncryptionTab.Controls.Add(this.textToEncryptLabel);
             this.EncryptionTab.Controls.Add(this.textToEncrypt);
             this.EncryptionTab.Controls.Add(this.encryptButton);
-            this.EncryptionTab.Location = new System.Drawing.Point(4, 4);
+            this.EncryptionTab.Location = new System.Drawing.Point(4, 22);
             this.EncryptionTab.Name = "EncryptionTab";
             this.EncryptionTab.Padding = new System.Windows.Forms.Padding(3);
-            this.EncryptionTab.Size = new System.Drawing.Size(830, 493);
+            this.EncryptionTab.Size = new System.Drawing.Size(830, 460);
             this.EncryptionTab.TabIndex = 0;
             this.EncryptionTab.Text = "Encrypt";
+            // 
+            // deleteTextAfterEncrypt
+            // 
+            this.deleteTextAfterEncrypt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteTextAfterEncrypt.AutoSize = true;
+            this.deleteTextAfterEncrypt.Checked = true;
+            this.deleteTextAfterEncrypt.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteTextAfterEncrypt.Location = new System.Drawing.Point(180, 437);
+            this.deleteTextAfterEncrypt.Name = "deleteTextAfterEncrypt";
+            this.deleteTextAfterEncrypt.Size = new System.Drawing.Size(145, 17);
+            this.deleteTextAfterEncrypt.TabIndex = 6;
+            this.deleteTextAfterEncrypt.Text = "Delete Text After Encrypt";
+            this.deleteTextAfterEncrypt.UseVisualStyleBackColor = true;
+            this.deleteTextAfterEncrypt.CheckedChanged += new System.EventHandler(this.deleteTextAfterEncrypt_CheckedChanged);
             // 
             // copytoClipBoard
             // 
             this.copytoClipBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.copytoClipBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.copytoClipBoard.Location = new System.Drawing.Point(9, 464);
+            this.copytoClipBoard.Location = new System.Drawing.Point(9, 431);
             this.copytoClipBoard.Name = "copytoClipBoard";
             this.copytoClipBoard.Size = new System.Drawing.Size(157, 23);
             this.copytoClipBoard.TabIndex = 5;
@@ -147,7 +166,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.encryptedText.Name = "encryptedText";
             this.encryptedText.ReadOnly = true;
             this.encryptedText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.encryptedText.Size = new System.Drawing.Size(813, 205);
+            this.encryptedText.Size = new System.Drawing.Size(813, 172);
             this.encryptedText.TabIndex = 4;
             this.encryptedText.WordWrap = false;
             // 
@@ -187,7 +206,7 @@ namespace HauntedHouseSoftware.TextShredder
             // 
             this.encryptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.encryptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.encryptButton.Location = new System.Drawing.Point(747, 465);
+            this.encryptButton.Location = new System.Drawing.Point(747, 432);
             this.encryptButton.Name = "encryptButton";
             this.encryptButton.Size = new System.Drawing.Size(75, 23);
             this.encryptButton.TabIndex = 0;
@@ -205,18 +224,30 @@ namespace HauntedHouseSoftware.TextShredder
             this.DecryptionTab.Controls.Add(this.textToDecryptLabel);
             this.DecryptionTab.Controls.Add(this.textToDecrypt);
             this.DecryptionTab.Controls.Add(this.decryptButton);
-            this.DecryptionTab.Location = new System.Drawing.Point(4, 4);
+            this.DecryptionTab.Location = new System.Drawing.Point(4, 22);
             this.DecryptionTab.Name = "DecryptionTab";
             this.DecryptionTab.Padding = new System.Windows.Forms.Padding(3);
-            this.DecryptionTab.Size = new System.Drawing.Size(830, 493);
+            this.DecryptionTab.Size = new System.Drawing.Size(830, 460);
             this.DecryptionTab.TabIndex = 1;
             this.DecryptionTab.Text = "Decrypt";
+            // 
+            // deletePlainText
+            // 
+            this.deletePlainText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deletePlainText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletePlainText.Location = new System.Drawing.Point(205, 431);
+            this.deletePlainText.Name = "deletePlainText";
+            this.deletePlainText.Size = new System.Drawing.Size(111, 23);
+            this.deletePlainText.TabIndex = 10;
+            this.deletePlainText.Text = "Delete Plain Text";
+            this.deletePlainText.UseVisualStyleBackColor = true;
+            this.deletePlainText.Click += new System.EventHandler(this.deletePlainText_Click);
             // 
             // pasteFromClipboard
             // 
             this.pasteFromClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pasteFromClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pasteFromClipboard.Location = new System.Drawing.Point(9, 464);
+            this.pasteFromClipboard.Location = new System.Drawing.Point(9, 431);
             this.pasteFromClipboard.Name = "pasteFromClipboard";
             this.pasteFromClipboard.Size = new System.Drawing.Size(190, 23);
             this.pasteFromClipboard.TabIndex = 9;
@@ -236,7 +267,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.decryptedText.Name = "decryptedText";
             this.decryptedText.ReadOnly = true;
             this.decryptedText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.decryptedText.Size = new System.Drawing.Size(813, 205);
+            this.decryptedText.Size = new System.Drawing.Size(813, 172);
             this.decryptedText.TabIndex = 8;
             this.decryptedText.WordWrap = false;
             // 
@@ -276,7 +307,7 @@ namespace HauntedHouseSoftware.TextShredder
             // 
             this.decryptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.decryptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.decryptButton.Location = new System.Drawing.Point(747, 465);
+            this.decryptButton.Location = new System.Drawing.Point(747, 432);
             this.decryptButton.Name = "decryptButton";
             this.decryptButton.Size = new System.Drawing.Size(75, 23);
             this.decryptButton.TabIndex = 1;
@@ -311,19 +342,19 @@ namespace HauntedHouseSoftware.TextShredder
             // setPasswordToolStripMenuItem
             // 
             this.setPasswordToolStripMenuItem.Name = "setPasswordToolStripMenuItem";
-            this.setPasswordToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.setPasswordToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.setPasswordToolStripMenuItem.Text = "Set Password";
             this.setPasswordToolStripMenuItem.Click += new System.EventHandler(this.setPasswordToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -422,31 +453,47 @@ namespace HauntedHouseSoftware.TextShredder
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // deleteTextAfterEncrypt
+            // toolStrip
             // 
-            this.deleteTextAfterEncrypt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteTextAfterEncrypt.AutoSize = true;
-            this.deleteTextAfterEncrypt.Checked = true;
-            this.deleteTextAfterEncrypt.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteTextAfterEncrypt.Location = new System.Drawing.Point(180, 470);
-            this.deleteTextAfterEncrypt.Name = "deleteTextAfterEncrypt";
-            this.deleteTextAfterEncrypt.Size = new System.Drawing.Size(145, 17);
-            this.deleteTextAfterEncrypt.TabIndex = 6;
-            this.deleteTextAfterEncrypt.Text = "Delete Text After Encrypt";
-            this.deleteTextAfterEncrypt.UseVisualStyleBackColor = true;
-            this.deleteTextAfterEncrypt.CheckedChanged += new System.EventHandler(this.deleteTextAfterEncrypt_CheckedChanged);
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openTextFileToolStripButton,
+            this.saveTextFileToolStripButton,
+            this.changePasswordTextFileToolStripButton});
+            this.toolStrip.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(838, 33);
+            this.toolStrip.TabIndex = 5;
+            this.toolStrip.Text = "Text Shredder Toolbar";
             // 
-            // deletePlainText
+            // openTextFileToolStripButton
             // 
-            this.deletePlainText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deletePlainText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deletePlainText.Location = new System.Drawing.Point(205, 464);
-            this.deletePlainText.Name = "deletePlainText";
-            this.deletePlainText.Size = new System.Drawing.Size(111, 23);
-            this.deletePlainText.TabIndex = 10;
-            this.deletePlainText.Text = "Delete Plain Text";
-            this.deletePlainText.UseVisualStyleBackColor = true;
-            this.deletePlainText.Click += new System.EventHandler(this.deletePlainText_Click);
+            this.openTextFileToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openTextFileToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openTextFileToolStripButton.Image")));
+            this.openTextFileToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.openTextFileToolStripButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.openTextFileToolStripButton.Name = "openTextFileToolStripButton";
+            this.openTextFileToolStripButton.Size = new System.Drawing.Size(30, 30);
+            this.openTextFileToolStripButton.Text = "Open a text file.";
+            // 
+            // saveTextFileToolStripButton
+            // 
+            this.saveTextFileToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveTextFileToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveTextFileToolStripButton.Image")));
+            this.saveTextFileToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.saveTextFileToolStripButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.saveTextFileToolStripButton.Name = "saveTextFileToolStripButton";
+            this.saveTextFileToolStripButton.Size = new System.Drawing.Size(30, 30);
+            this.saveTextFileToolStripButton.Text = "Save encrypted text to a file.";
+            // 
+            // changePasswordTextFileToolStripButton
+            // 
+            this.changePasswordTextFileToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.changePasswordTextFileToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordTextFileToolStripButton.Image")));
+            this.changePasswordTextFileToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.changePasswordTextFileToolStripButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.changePasswordTextFileToolStripButton.Name = "changePasswordTextFileToolStripButton";
+            this.changePasswordTextFileToolStripButton.Size = new System.Drawing.Size(30, 30);
+            this.changePasswordTextFileToolStripButton.Text = "Set the password.";
             // 
             // TextShredderMainForm
             // 
@@ -454,6 +501,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 565);
             this.Controls.Add(this.encryptionDecryptionTabPage);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -471,6 +519,8 @@ namespace HauntedHouseSoftware.TextShredder
             this.DecryptionTab.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,6 +564,10 @@ namespace HauntedHouseSoftware.TextShredder
         private System.Windows.Forms.ToolStripMenuItem lowContrastLightToolStripMenuItem;
         private System.Windows.Forms.CheckBox deleteTextAfterEncrypt;
         private System.Windows.Forms.Button deletePlainText;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton openTextFileToolStripButton;
+        private System.Windows.Forms.ToolStripButton saveTextFileToolStripButton;
+        private System.Windows.Forms.ToolStripButton changePasswordTextFileToolStripButton;
     }
 }
 
