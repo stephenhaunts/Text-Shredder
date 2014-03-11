@@ -216,5 +216,10 @@ namespace HauntedHouseSoftware.TextShredder
         {
             SaveTextFile();
         }
+
+        private void helpMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadHelpPage();
+        }      
     }
 }

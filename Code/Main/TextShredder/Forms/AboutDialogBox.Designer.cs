@@ -34,6 +34,7 @@
             this.aboutBoxVersionLabel = new System.Windows.Forms.Label();
             this.aboutBoxLicenseName = new System.Windows.Forms.Label();
             this.aboutBoxOkButton = new System.Windows.Forms.Button();
+            this.linkLabel = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,11 +89,24 @@
             this.aboutBoxOkButton.Text = "Ok";
             this.aboutBoxOkButton.UseVisualStyleBackColor = true;
             // 
+            // linkLabel
+            // 
+            this.linkLabel.AutoSize = true;
+            this.linkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel.Location = new System.Drawing.Point(56, 287);
+            this.linkLabel.Name = "linkLabel";
+            this.linkLabel.Size = new System.Drawing.Size(400, 20);
+            this.linkLabel.TabIndex = 6;
+            this.linkLabel.TabStop = true;
+            this.linkLabel.Text = "http://stephenhaunts.com/projects/text-shredder/";
+            this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_LinkClicked);
+            // 
             // AboutDialogBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 319);
+            this.Controls.Add(this.linkLabel);
             this.Controls.Add(this.aboutBoxOkButton);
             this.Controls.Add(this.aboutBoxLicenseName);
             this.Controls.Add(this.aboutBoxVersionLabel);
@@ -116,5 +130,6 @@
         private System.Windows.Forms.Label aboutBoxVersionLabel;
         private System.Windows.Forms.Label aboutBoxLicenseName;
         private System.Windows.Forms.Button aboutBoxOkButton;
+        private System.Windows.Forms.LinkLabel linkLabel;
     }
 }
