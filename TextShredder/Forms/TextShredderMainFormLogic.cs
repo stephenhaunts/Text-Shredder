@@ -34,7 +34,8 @@ namespace HauntedHouseSoftware.TextShredder
         private bool _passwordSet;
         private PasswordEntry _passwordEntry;
         private ApplicationSettings _settings = new ApplicationSettings();
-        private bool _deleteTextAfterEncrypt = false;
+        private bool _deleteTextAfterEncrypt;
+        private const string HELP_URL = "http://stephenhaunts.com/projects/text-shredder/text-shredder-1-0-manual/";
 
         private bool SetPassword(bool confirmPassword)
         {
@@ -234,7 +235,7 @@ namespace HauntedHouseSoftware.TextShredder
                 {
                     textToEncrypt.Text = File.ReadAllText(openFileDialog.FileName);
                 }
-                catch (Exception)
+                catch
                 {
                     MessageBox.Show(String.Format("There was an error reading from the file <{0}>", openFileDialog.FileName), "Error Reading from File", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -249,10 +250,22 @@ namespace HauntedHouseSoftware.TextShredder
                 {
                     File.WriteAllText(saveFileDialog.FileName, encryptedText.Text);
                 }
-                catch (Exception)
+                catch
                 {
                     MessageBox.Show(String.Format("There was an error saving the file <{0}>", saveFileDialog.FileName), "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+        private static void LoadHelpPage()
+        {
+            try
+            {
+                ProcessStartInfo sInfo = new ProcessStartInfo(HELP_URL);
+                Process.Start(sInfo);
+            }
+            catch
+            {
+                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

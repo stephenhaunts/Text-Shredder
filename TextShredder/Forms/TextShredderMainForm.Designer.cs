@@ -80,6 +80,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.saveEncryptedTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.encryptionDecryptionTabPage.SuspendLayout();
             this.EncryptionTab.SuspendLayout();
@@ -447,6 +448,7 @@ namespace HauntedHouseSoftware.TextShredder
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -455,7 +457,7 @@ namespace HauntedHouseSoftware.TextShredder
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -530,6 +532,14 @@ namespace HauntedHouseSoftware.TextShredder
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "Text File |*.txt|All Files|*.*";
+            // 
+            // helpMenuItem
+            // 
+            this.helpMenuItem.Name = "helpMenuItem";
+            this.helpMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.helpMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpMenuItem.Text = "Help";
+            this.helpMenuItem.Click += new System.EventHandler(this.helpMenuItem_Click);
             // 
             // TextShredderMainForm
             // 
@@ -609,6 +619,7 @@ namespace HauntedHouseSoftware.TextShredder
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
     }
 }
 
