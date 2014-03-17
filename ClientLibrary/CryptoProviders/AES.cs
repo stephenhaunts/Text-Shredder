@@ -1,5 +1,4 @@
-﻿using HauntedHouseSoftware.TextShredder.ClientLibrary;
-/**
+﻿/**
 * Text Shredder : A personal message encryption tool.
 * 
 * Copyright (C) 2014 Stephen Haunts
@@ -21,6 +20,7 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
+using HauntedHouseSoftware.TextShredder.ClientLibrary;
 
 namespace HauntedHouseSoftware.TextShredder.CryptoProviders
 {
@@ -141,20 +141,18 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
         }
 
         private static byte[] CheckHMAC(byte[] dataToDecrypt, byte[] salt, AesCryptoServiceProvider aes)
-        {
-            // Separate HMAC (first 32bytes)
+        {            
             var hmac = ByteHelpers.CreateSpecialByteArray(32);
             var encryptedData = ByteHelpers.CreateSpecialByteArray(dataToDecrypt.Length - 32);
 
             Buffer.BlockCopy(dataToDecrypt, 0, hmac, 0, 32);
             Buffer.BlockCopy(dataToDecrypt, 32, encryptedData, 0, dataToDecrypt.Length - 32);
-
-            // Calculate HMAC of cipher text and salt
+            
             var newHMAC = CreateHMAC(salt, aes, encryptedData);
                         
             if (!ByteHelpers.ByteArrayCompare(hmac, newHMAC))
             {
-                throw new CryptographicException("The authenticated message code doesn't match. \nThe message may have been corrupted or tampered with.");
+                throw new CryptographicException("The authenticated message code doesn't match. \n\nThe message may have been corrupted or tampered with.");
             }
 
             return encryptedData;
