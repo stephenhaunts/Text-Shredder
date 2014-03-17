@@ -26,6 +26,7 @@ using HauntedHouseSoftware.TextShredder.ClientLibrary;
 using HauntedHouseSoftware.TextShredder.Forms;
 using System.Drawing;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace HauntedHouseSoftware.TextShredder
 {
@@ -149,11 +150,16 @@ namespace HauntedHouseSoftware.TextShredder
             {
                 decryptedText.Text = BlockEncrypter.DecryptBlock(textToDecrypt.Text, _passwordEntry.Password.CombinedPasswords);
             }
+            catch(CryptographicException ex)
+            {
+                decryptedText.Text = "";
+                MessageBox.Show(ex.Message, "Message Tamper Alert", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
             catch (Exception)
             {
                 decryptedText.Text = "";
-                MessageBox.Show("There was an error decrypting the message.", "Decryption Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+                MessageBox.Show("There was an error decrypting the message.", "Decryption Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
+            }        
         }
         private void PasteFromClipboard()
         {
