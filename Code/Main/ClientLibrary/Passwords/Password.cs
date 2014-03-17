@@ -51,7 +51,8 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
             _password1 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
             _password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));
 
-            _combinedPasswords = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + optionalPassword2));
+            //_combinedPasswords = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + optionalPassword2));
+            _combinedPasswords = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + optionalPassword2));
         }
 
         public byte[] Password1
