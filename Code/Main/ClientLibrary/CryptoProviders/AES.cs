@@ -1,4 +1,5 @@
-﻿/**
+﻿using HauntedHouseSoftware.TextShredder.ClientLibrary;
+/**
 * Text Shredder : A personal message encryption tool.
 * 
 * Copyright (C) 2014 Stephen Haunts
@@ -58,9 +59,13 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
                             cryptoStream.Write(dataToEncrypt, 0, dataToEncrypt.Length);
                             cryptoStream.FlushFinalBlock();
 
-                            var toReturn = memoryStream.ToArray();
+                            var encryptedMessage = memoryStream.ToArray();
 
-                            return toReturn;                          
+                            byte[] hmac = CreateHMAC(salt, aes, encryptedMessage);
+
+                            var messagePlusHMAC = ByteHelpers.CreateSpecialByteArray(encryptedMessage.Length + 32);
+                            messagePlusHMAC = ByteHelpers.Combine(hmac, encryptedMessage);
+                            return messagePlusHMAC;                          
                         }
                     }
                 }
@@ -69,6 +74,17 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
             {
                 return null;
             }           
+        }
+
+        private static byte[] CreateHMAC(byte[] salt, AesCryptoServiceProvider aes, byte[] encryptedMessage)
+        {
+            using (var hmacsha256 = new HMACSHA256(aes.Key))
+            {
+                var messagePlusSALT = ByteHelpers.CreateSpecialByteArray(encryptedMessage.Length + 32);
+                messagePlusSALT = ByteHelpers.Combine(encryptedMessage, salt);
+
+                return hmacsha256.ComputeHash(messagePlusSALT);
+            }
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
@@ -100,9 +116,11 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
 
                         using (var memoryStream = new MemoryStream())
                         {
+                            var encryptedData = CheckHMAC(dataToDecrypt, salt, aes);
+                                           
                             var cryptoStream = new CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Write);
-                            
-                            cryptoStream.Write(dataToDecrypt, 0, dataToDecrypt.Length);
+
+                            cryptoStream.Write(encryptedData, 0, encryptedData.Length);
                             cryptoStream.FlushFinalBlock();
 
                             var decryptBytes = memoryStream.ToArray();                          
@@ -112,10 +130,34 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
                     }
                 }
             }
+            catch (CryptographicException ex)
+            {
+                throw new CryptographicException(ex.Message);
+            }
             catch
             {
                 return null;
             }           
+        }
+
+        private static byte[] CheckHMAC(byte[] dataToDecrypt, byte[] salt, AesCryptoServiceProvider aes)
+        {
+            // Separate HMAC (first 32bytes)
+            var hmac = ByteHelpers.CreateSpecialByteArray(32);
+            var encryptedData = ByteHelpers.CreateSpecialByteArray(dataToDecrypt.Length - 32);
+
+            Buffer.BlockCopy(dataToDecrypt, 0, hmac, 0, 32);
+            Buffer.BlockCopy(dataToDecrypt, 32, encryptedData, 0, dataToDecrypt.Length - 32);
+
+            // Calculate HMAC of cipher text and salt
+            var newHMAC = CreateHMAC(salt, aes, encryptedData);
+                        
+            if (!ByteHelpers.ByteArrayCompare(hmac, newHMAC))
+            {
+                throw new CryptographicException("The authenticated message code doesn't match. \nThe message may have been corrupted or tampered with.");
+            }
+
+            return encryptedData;
         }       
     }
 }

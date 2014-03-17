@@ -27,7 +27,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 {
     public sealed class BlockEncrypter
     {
-        private static ICompression _compressor = new GZipCompression();
+        private readonly static ICompression _compressor = new GZipCompression();
 
         private BlockEncrypter() { }
 
