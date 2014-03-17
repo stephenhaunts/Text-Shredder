@@ -50,11 +50,8 @@
     <Compile Include="BlockEncrypter.cs" />
     <Compile Include="ByteHelpers.cs" />
     <Compile Include="CryptoProviders\AES.cs" />
-    <Compile Include="CryptoProviders\BCrypt.cs" />
-    <Compile Include="CryptoProviders\BCryptHash.cs" />
     <Compile Include="CryptoProviders\IAES.cs" />
     <Compile Include="CryptoProviders\ISecureHash.cs" />
-    <Compile Include="CryptoProviders\SaltParseException.cs" />
     <Compile Include="CryptoProviders\SecureHash.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GZipCompression.cs" />
