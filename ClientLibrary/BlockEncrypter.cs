@@ -18,18 +18,14 @@
 * Authors: Stephen Haunts
 */
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using HauntedHouseSoftware.TextShredder.CryptoProviders;
 
 namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 {
-    public sealed class BlockEncrypter
+    public static class BlockEncrypter
     {
-        private readonly static ICompression _compressor = new GZipCompression();
-
-        private BlockEncrypter() { }
+        private readonly static ICompression Compressor = new GZipCompression();
 
         public static string EncryptBlock(string textToEncrypt, byte [] password)
         {       
@@ -43,14 +39,14 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 throw new ArgumentNullException("password");
             }
 
-            AES aes = new AES();
+            var aes = new AES();
 
-            using (RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider())
+            using (var rngCsp = new RNGCryptoServiceProvider())
             {
-                byte[] salt = new byte[32];
+                var salt = new byte[32];
                 rngCsp.GetBytes(salt);
 
-                byte[] compressed = _compressor.Compress(ByteHelpers.GetBytes(textToEncrypt));
+                var compressed = Compressor.Compress(ByteHelpers.GetBytes(textToEncrypt));
 
                 var encrpytedMessage = aes.Encrypt(compressed, Convert.ToBase64String(password), salt, 45000);
                 var fullMessage = ByteHelpers.CreateSpecialByteArray(encrpytedMessage.Length + 32);
@@ -72,16 +68,16 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 throw new ArgumentNullException("password");
             }
 
-            AES aes = new AES();
+            var aes = new AES();
 
-            byte[] convertFromBase64String = Convert.FromBase64String(textToDecrypt);
+            var convertFromBase64String = Convert.FromBase64String(textToDecrypt);
 
             var salt = ByteHelpers.CreateSpecialByteArray(32);
             var message = ByteHelpers.CreateSpecialByteArray(convertFromBase64String.Length - 32);
             Buffer.BlockCopy(convertFromBase64String, 0, salt, 0, 32);
             Buffer.BlockCopy(convertFromBase64String, 32, message, 0, convertFromBase64String.Length - 32);
 
-            byte[] deCompressed = _compressor.Decompress(aes.Decrypt(message, Convert.ToBase64String(password), salt, 45000));
+            var deCompressed = Compressor.Decompress(aes.Decrypt(message, Convert.ToBase64String(password), salt, 45000));
 
             return ByteHelpers.GetString(deCompressed);           
         }
