@@ -22,12 +22,8 @@ using System.Collections;
 
 namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 {
-    public sealed class ByteHelpers
+    public static class ByteHelpers
     {
-        private ByteHelpers()
-        {
-        }
-
         public static bool ByteArrayCompare(byte[] a1, byte[] a2)
         {
             if (a1 == null)
@@ -88,7 +84,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 throw new ArgumentNullException(inputString);
             }
 
-            byte[] bytes = new byte[inputString.Length * sizeof(char)];
+            var bytes = new byte[inputString.Length * sizeof(char)];
             Buffer.BlockCopy(inputString.ToCharArray(), 0, bytes, 0, bytes.Length);
 
             return bytes;
@@ -101,7 +97,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 throw new ArgumentNullException("byteArray");
             }
 
-            char[] chars = new char[byteArray.Length / sizeof(char)];
+            var chars = new char[byteArray.Length / sizeof(char)];
             Buffer.BlockCopy(byteArray, 0, chars, 0, byteArray.Length);
             return new string(chars);
         }

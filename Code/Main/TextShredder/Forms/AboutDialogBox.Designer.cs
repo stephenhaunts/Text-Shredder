@@ -66,7 +66,7 @@
             this.aboutBoxVersionLabel.Name = "aboutBoxVersionLabel";
             this.aboutBoxVersionLabel.Size = new System.Drawing.Size(112, 22);
             this.aboutBoxVersionLabel.TabIndex = 3;
-            this.aboutBoxVersionLabel.Text = "Version 1.0";
+            this.aboutBoxVersionLabel.Text = "Version 1.1";
             // 
             // aboutBoxLicenseName
             // 
