@@ -83,6 +83,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.changePasswordTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.encryptionDecryptionTabPage.SuspendLayout();
             this.EncryptionTab.SuspendLayout();
@@ -367,6 +368,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.openToolStripMenuItem,
             this.saveEncryptedTextFileToolStripMenuItem,
             this.toolStripSeparator2,
+            this.wordWrapToolStripMenuItem,
             this.setPasswordToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
@@ -569,6 +571,15 @@ namespace HauntedHouseSoftware.TextShredder
             // 
             this.saveFileDialog.Filter = "Text File |*.txt|All Files|*.*";
             // 
+            // wordWrapToolStripMenuItem
+            // 
+            this.wordWrapToolStripMenuItem.CheckOnClick = true;
+            this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
+            this.wordWrapToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.wordWrapToolStripMenuItem.Text = "Word Wrap";
+            this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
+            // 
             // TextShredderMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -650,6 +661,7 @@ namespace HauntedHouseSoftware.TextShredder
         private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
         private System.Windows.Forms.Button clearAllEncrypted;
         private System.Windows.Forms.Button clearAllDecrypt;
+        private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem;
     }
 }
 

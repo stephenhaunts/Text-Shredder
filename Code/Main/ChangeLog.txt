@@ -11,6 +11,8 @@ Version 1.1
 [X] - When setting up the AesCryptoServiceProvider, make the cipher mode and padding schemes more apparent. This application uses
       AES set to CBC mode with PKCS7 padding.
 
+[X] - Add a word wrap option to the file menu. This enables/disables word wrap on all the text boxes.
+
 
 Version 1.0
 ------------
