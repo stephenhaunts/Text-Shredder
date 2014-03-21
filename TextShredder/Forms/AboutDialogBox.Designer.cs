@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutDialogBox));
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.aboutBoxNameLabel = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.aboutBoxLicenseName = new System.Windows.Forms.Label();
             this.aboutBoxOkButton = new System.Windows.Forms.Button();
             this.linkLabel = new System.Windows.Forms.LinkLabel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +103,12 @@
             this.linkLabel.Text = "http://stephenhaunts.com/projects/text-shredder/";
             this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_LinkClicked);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // AboutDialogBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,5 +139,6 @@
         private System.Windows.Forms.Label aboutBoxLicenseName;
         private System.Windows.Forms.Button aboutBoxOkButton;
         private System.Windows.Forms.LinkLabel linkLabel;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
