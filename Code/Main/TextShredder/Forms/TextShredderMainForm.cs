@@ -27,13 +27,21 @@ using System.Drawing;
 namespace HauntedHouseSoftware.TextShredder
 {
     public partial class TextShredderMainForm : Form
-    {        
+    {
+        private UpgradeNotice _upgradeNotice = new UpgradeNotice();
+
         public TextShredderMainForm()
         {
             InitializeComponent();
             Visible = true;
 
             LoadSettings();
+
+            if (!_upgradeNotice.DontShowThisAgain)
+            {
+                _upgradeNotice.ShowDialog();
+            }
+
             SetPasswordAndStatusBar(true);
 
             encryptMenuItem.Enabled = true;

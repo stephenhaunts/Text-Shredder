@@ -80,6 +80,12 @@
     <Compile Include="Forms\TextShredderMainFormLogic.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\UpgradeNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpgradeNotice.Designer.cs">
+      <DependentUpon>UpgradeNotice.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TextShredderMainForm.resx">
       <DependentUpon>TextShredderMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpgradeNotice.resx">
+      <DependentUpon>UpgradeNotice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
