@@ -204,6 +204,7 @@ namespace HauntedHouseSoftware.TextShredder
                 textToDecrypt.ForeColor = Color.FromArgb(_settings.ForegroundColorRed, _settings.ForegroundColorGreen, _settings.ForegroundColorBlue);
 
                 wordWrapToolStripMenuItem.Checked = _settings.WordWrap;
+                _upgradeNotice.DontShowThisAgain = _settings.DisableUpgradeNoticeVersion11;
             }
             else
             {
@@ -233,6 +234,8 @@ namespace HauntedHouseSoftware.TextShredder
             _settings.ForegroundColorBlue = textToEncrypt.ForeColor.B;
 
             _settings.WordWrap = wordWrapToolStripMenuItem.Checked;
+
+            _settings.DisableUpgradeNoticeVersion11 = _upgradeNotice.DontShowThisAgain;
          
             SettingsWriter.WriteSettingsFile(_settings);
         }
