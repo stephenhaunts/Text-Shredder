@@ -60,6 +60,7 @@
             this.linkLabel.TabIndex = 7;
             this.linkLabel.TabStop = true;
             this.linkLabel.Text = "http://stephenhaunts.com/projects/text-shredder/";
+            this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_LinkClicked);
             // 
             // label1
             // 
