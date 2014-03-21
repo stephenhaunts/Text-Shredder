@@ -274,5 +274,14 @@ namespace HauntedHouseSoftware.TextShredder
                 MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void SetWordWrap()
+        {
+            textToEncrypt.WordWrap = wordWrapToolStripMenuItem.Checked;
+            encryptedText.WordWrap = wordWrapToolStripMenuItem.Checked;
+
+            textToDecrypt.WordWrap = wordWrapToolStripMenuItem.Checked;
+            decryptedText.WordWrap = wordWrapToolStripMenuItem.Checked;
+        }      
     }
 }

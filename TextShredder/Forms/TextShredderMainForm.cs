@@ -39,7 +39,8 @@ namespace HauntedHouseSoftware.TextShredder
             encryptMenuItem.Enabled = true;
             decryptMenuItem.Enabled = false;
             copytoClipBoardMenuItem.Enabled = true;            
-            pasteFromClipboardMenuItem.Enabled = false;            
+            pasteFromClipboardMenuItem.Enabled = false;
+            SetWordWrap();
         }           
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -232,6 +233,11 @@ namespace HauntedHouseSoftware.TextShredder
         {
             textToEncrypt.Text = "";
             encryptedText.Text = "";
-        }      
+        }
+
+        private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetWordWrap();
+        }       
     }
 }
