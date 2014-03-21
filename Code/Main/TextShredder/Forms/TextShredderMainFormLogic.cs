@@ -202,6 +202,8 @@ namespace HauntedHouseSoftware.TextShredder
 
                 textToDecrypt.BackColor = Color.FromArgb(_settings.BackgroundColorRed, _settings.BackgroundColorGreen, _settings.BackgroundColorBlue);
                 textToDecrypt.ForeColor = Color.FromArgb(_settings.ForegroundColorRed, _settings.ForegroundColorGreen, _settings.ForegroundColorBlue);
+
+                wordWrapToolStripMenuItem.Checked = _settings.WordWrap;
             }
             else
             {
@@ -229,6 +231,8 @@ namespace HauntedHouseSoftware.TextShredder
             _settings.ForegroundColorRed = textToEncrypt.ForeColor.R;
             _settings.ForegroundColorGreen = textToEncrypt.ForeColor.G;
             _settings.ForegroundColorBlue = textToEncrypt.ForeColor.B;
+
+            _settings.WordWrap = wordWrapToolStripMenuItem.Checked;
          
             SettingsWriter.WriteSettingsFile(_settings);
         }
