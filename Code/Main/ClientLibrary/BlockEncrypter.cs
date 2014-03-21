@@ -48,7 +48,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 
                 var compressed = Compressor.Compress(ByteHelpers.GetBytes(textToEncrypt));
 
-                var encrpytedMessage = aes.Encrypt(compressed, Convert.ToBase64String(password), salt, 45000);
+                var encrpytedMessage = aes.Encrypt(compressed, Convert.ToBase64String(password), salt, 70000);
                 var fullMessage = ByteHelpers.CreateSpecialByteArray(encrpytedMessage.Length + 32);
                 fullMessage = ByteHelpers.Combine(salt, encrpytedMessage);
 
@@ -77,7 +77,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
             Buffer.BlockCopy(convertFromBase64String, 0, salt, 0, 32);
             Buffer.BlockCopy(convertFromBase64String, 32, message, 0, convertFromBase64String.Length - 32);
 
-            var deCompressed = Compressor.Decompress(aes.Decrypt(message, Convert.ToBase64String(password), salt, 45000));
+            var deCompressed = Compressor.Decompress(aes.Decrypt(message, Convert.ToBase64String(password), salt, 70000));
 
             return ByteHelpers.GetString(deCompressed);           
         }

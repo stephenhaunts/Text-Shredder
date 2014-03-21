@@ -39,6 +39,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.encryptionDecryptionTabPage = new System.Windows.Forms.TabControl();
             this.EncryptionTab = new System.Windows.Forms.TabPage();
+            this.clearAllEncrypted = new System.Windows.Forms.Button();
             this.deleteTextAfterEncrypt = new System.Windows.Forms.CheckBox();
             this.copytoClipBoard = new System.Windows.Forms.Button();
             this.encryptedText = new System.Windows.Forms.TextBox();
@@ -47,6 +48,7 @@ namespace HauntedHouseSoftware.TextShredder
             this.textToEncrypt = new System.Windows.Forms.TextBox();
             this.encryptButton = new System.Windows.Forms.Button();
             this.DecryptionTab = new System.Windows.Forms.TabPage();
+            this.clearAllDecrypt = new System.Windows.Forms.Button();
             this.deletePlainText = new System.Windows.Forms.Button();
             this.pasteFromClipboard = new System.Windows.Forms.Button();
             this.decryptedText = new System.Windows.Forms.TextBox();
@@ -81,8 +83,6 @@ namespace HauntedHouseSoftware.TextShredder
             this.changePasswordTextFileToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.clearAllEncrypted = new System.Windows.Forms.Button();
-            this.clearAllDecrypt = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             this.encryptionDecryptionTabPage.SuspendLayout();
             this.EncryptionTab.SuspendLayout();
@@ -136,6 +136,18 @@ namespace HauntedHouseSoftware.TextShredder
             this.EncryptionTab.Size = new System.Drawing.Size(830, 460);
             this.EncryptionTab.TabIndex = 0;
             this.EncryptionTab.Text = "Encrypt";
+            // 
+            // clearAllEncrypted
+            // 
+            this.clearAllEncrypted.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.clearAllEncrypted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearAllEncrypted.Location = new System.Drawing.Point(174, 431);
+            this.clearAllEncrypted.Name = "clearAllEncrypted";
+            this.clearAllEncrypted.Size = new System.Drawing.Size(80, 23);
+            this.clearAllEncrypted.TabIndex = 7;
+            this.clearAllEncrypted.Text = "Clear All";
+            this.clearAllEncrypted.UseVisualStyleBackColor = true;
+            this.clearAllEncrypted.Click += new System.EventHandler(this.clearAllEncrypted_Click);
             // 
             // deleteTextAfterEncrypt
             // 
@@ -238,6 +250,18 @@ namespace HauntedHouseSoftware.TextShredder
             this.DecryptionTab.Size = new System.Drawing.Size(830, 460);
             this.DecryptionTab.TabIndex = 1;
             this.DecryptionTab.Text = "Decrypt";
+            // 
+            // clearAllDecrypt
+            // 
+            this.clearAllDecrypt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.clearAllDecrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearAllDecrypt.Location = new System.Drawing.Point(323, 431);
+            this.clearAllDecrypt.Name = "clearAllDecrypt";
+            this.clearAllDecrypt.Size = new System.Drawing.Size(80, 23);
+            this.clearAllDecrypt.TabIndex = 11;
+            this.clearAllDecrypt.Text = "Clear All";
+            this.clearAllDecrypt.UseVisualStyleBackColor = true;
+            this.clearAllDecrypt.Click += new System.EventHandler(this.clearAllDecrypt_Click);
             // 
             // deletePlainText
             // 
@@ -544,30 +568,6 @@ namespace HauntedHouseSoftware.TextShredder
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "Text File |*.txt|All Files|*.*";
-            // 
-            // clearAllEncrypted
-            // 
-            this.clearAllEncrypted.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.clearAllEncrypted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearAllEncrypted.Location = new System.Drawing.Point(174, 431);
-            this.clearAllEncrypted.Name = "clearAllEncrypted";
-            this.clearAllEncrypted.Size = new System.Drawing.Size(80, 23);
-            this.clearAllEncrypted.TabIndex = 7;
-            this.clearAllEncrypted.Text = "Clear All";
-            this.clearAllEncrypted.UseVisualStyleBackColor = true;
-            this.clearAllEncrypted.Click += new System.EventHandler(this.clearAllEncrypted_Click);
-            // 
-            // clearAllDecrypt
-            // 
-            this.clearAllDecrypt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.clearAllDecrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearAllDecrypt.Location = new System.Drawing.Point(323, 431);
-            this.clearAllDecrypt.Name = "clearAllDecrypt";
-            this.clearAllDecrypt.Size = new System.Drawing.Size(80, 23);
-            this.clearAllDecrypt.TabIndex = 11;
-            this.clearAllDecrypt.Text = "Clear All";
-            this.clearAllDecrypt.UseVisualStyleBackColor = true;
-            this.clearAllDecrypt.Click += new System.EventHandler(this.clearAllDecrypt_Click);
             // 
             // TextShredderMainForm
             // 
