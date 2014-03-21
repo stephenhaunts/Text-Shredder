@@ -1,3 +1,16 @@
+Version 1.1
+-----------
+
+[X] - Added a HMAC to the encrypted message. The ciphertext + original salt is HMACed using the AES key. When the message is
+      decrypted, the HMAC is recomputed and compared to the original. If it doesn't match then the message has been corrupted
+	  or tampered with.
+
+[X] - Removed BCrypt from the internal password hash. After peer review it was deemed un-neccesary as a PBKFD (Rfc2898) is used
+      with 70,000 iterations to generate the AES key.
+
+[X] - When setting up the AesCryptoServiceProvider, make the cipher mode and padding schemes more apparent. This application uses
+      AES set to CBC mode with PKCS7 padding.
+
 
 Version 1.0
 ------------

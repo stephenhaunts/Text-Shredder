@@ -50,6 +50,9 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
                 {
                     using (var aes = new AesCryptoServiceProvider())
                     {
+                        aes.Mode = CipherMode.CBC;
+                        aes.Padding = PaddingMode.PKCS7;
+
                         aes.Key = rfc2898.GetBytes(32);
                         aes.IV = rfc2898.GetBytes(16);
                        
@@ -111,6 +114,9 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
                 {
                     using (var aes = new AesCryptoServiceProvider())
                     {
+                        aes.Mode = CipherMode.CBC;
+                        aes.Padding = PaddingMode.PKCS7;
+
                         aes.Key = rfc2898.GetBytes(32);
                         aes.IV = rfc2898.GetBytes(16);
 
