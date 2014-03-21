@@ -37,5 +37,6 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
         public byte ForegroundColorRed { get; set; }
         public byte ForegroundColorGreen { get; set; }
         public byte ForegroundColorBlue { get; set; }
+        public bool WordWrap { get; set; }
     }
 }
