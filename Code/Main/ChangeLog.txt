@@ -13,6 +13,9 @@ Version 1.1
 
 [X] - Add a word wrap option to the file menu. This enables/disables word wrap on all the text boxes.
 
+[X] - When the user first loads up Text Shredder, show an upgrade warning stating that their message recipients must be using the same
+      version of the tool. They can click on a "Do not show this again" checkbox to disable the warning then they next run the program.
+
 
 Version 1.0
 ------------
