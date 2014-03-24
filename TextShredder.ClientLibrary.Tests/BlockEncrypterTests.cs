@@ -64,7 +64,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [TestMethod]        
         public void DecryptBlockDecryptsBlockBackToOriginalPlainText()
         {
-            string originalMessage = "This is my message to encrypt.";
+            const string originalMessage = "This is my message to encrypt.";
 
             string encrypted = BlockEncrypter.EncryptBlock(originalMessage, Encoding.ASCII.GetBytes("Pa55w0rd"));
             string decrypted = BlockEncrypter.DecryptBlock(encrypted, Encoding.ASCII.GetBytes("Pa55w0rd"));

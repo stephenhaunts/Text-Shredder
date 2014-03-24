@@ -18,16 +18,16 @@
 * Authors: Stephen Haunts
 */
 
-using HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
 using System.Text;
+using HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests.CryptoProviders
 {
     [TestClass]
-    public class AESTests
+    public class AesTests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "dataToEncrypt")]
