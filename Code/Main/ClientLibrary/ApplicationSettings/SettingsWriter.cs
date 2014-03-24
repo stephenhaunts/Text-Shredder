@@ -17,20 +17,16 @@
 * 
 * Authors: Stephen Haunts
 */
+
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.ApplicationSettings
 {
-    public sealed class SettingsWriter
+    public static class SettingsWriter
     {
-        private SettingsWriter()
-        {
-        }
         public static string AssemblyDirectory
         {
             get
@@ -57,9 +53,10 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                     serializer.Serialize(writer, settings);
                 }
             }
+                
+            // ReSharper disable once EmptyGeneralCatchClause
             catch
             {
-                return;
             }
         }
 

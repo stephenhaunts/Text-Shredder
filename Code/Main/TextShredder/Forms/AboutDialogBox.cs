@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows.Forms;
+using HauntedHouseSoftware.TextShredder.Properties;
 
 namespace HauntedHouseSoftware.TextShredder.Forms
 {
@@ -22,12 +21,12 @@ namespace HauntedHouseSoftware.TextShredder.Forms
         {
             try
             {
-                ProcessStartInfo sInfo = new ProcessStartInfo(linkLabel.Text);
+                var sInfo = new ProcessStartInfo(linkLabel.Text);
                 Process.Start(sInfo);
             }
             catch
             {
-                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.AboutDialogBox_linkLabel_LinkClicked, Resources.AboutDialogBox_linkLabel_LinkClicked_Error_loading_Link, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

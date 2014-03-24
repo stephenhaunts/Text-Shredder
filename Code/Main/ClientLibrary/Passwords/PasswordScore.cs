@@ -17,7 +17,7 @@
 * 
 * Authors: Stephen Haunts
 */
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Passwords
 {
     public enum PasswordScore
     {

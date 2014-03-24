@@ -17,11 +17,12 @@
 * 
 * Authors: Stephen Haunts
 */
+
 using System;
 using System.Text;
-using HauntedHouseSoftware.TextShredder.CryptoProviders;
+using HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders;
 
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Passwords
 {
     public class Password : IPassword
     {
@@ -37,21 +38,11 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 throw new ArgumentNullException("password1");
             }
 
-            string optionalPassword2;
-
-            if (password2 == null)
-            {
-                optionalPassword2 = string.Empty;
-            }
-            else
-            {
-                optionalPassword2 = password2;
-            }
+            string optionalPassword2 = password2 ?? string.Empty;
 
             _password1 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
             _password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));
-
-            //_combinedPasswords = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + optionalPassword2));
+            
             _combinedPasswords = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + optionalPassword2));
         }
 

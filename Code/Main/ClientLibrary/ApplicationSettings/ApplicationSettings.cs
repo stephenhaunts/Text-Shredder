@@ -17,12 +17,10 @@
 * 
 * Authors: Stephen Haunts
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Windows.Forms;
 
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.ApplicationSettings
 {
     public sealed class ApplicationSettings
     {

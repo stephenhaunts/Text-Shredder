@@ -17,14 +17,14 @@
 * 
 * Authors: Stephen Haunts
 */
+
 using System;
 using System.IO;
 using System.Security.Cryptography;
-using HauntedHouseSoftware.TextShredder.ClientLibrary;
 
-namespace HauntedHouseSoftware.TextShredder.CryptoProviders
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders
 {
-    public class AES : IAES
+    public class Aes : IAes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public byte[] Encrypt(byte[] dataToEncrypt, string password, byte[] salt, int pbkdfRounds)
@@ -64,11 +64,10 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
 
                             var encryptedMessage = memoryStream.ToArray();
 
-                            byte[] hmac = CreateHMAC(salt, aes, encryptedMessage);
+                            byte[] hmac = CreateHmac(salt, aes, encryptedMessage);
+                            byte[] messagePlusHmac = ByteHelpers.Combine(hmac, encryptedMessage);
 
-                            var messagePlusHMAC = ByteHelpers.CreateSpecialByteArray(encryptedMessage.Length + 32);
-                            messagePlusHMAC = ByteHelpers.Combine(hmac, encryptedMessage);
-                            return messagePlusHMAC;                          
+                            return messagePlusHmac;                          
                         }
                     }
                 }
@@ -79,14 +78,13 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
             }           
         }
 
-        private static byte[] CreateHMAC(byte[] salt, AesCryptoServiceProvider aes, byte[] encryptedMessage)
+        private static byte[] CreateHmac(byte[] salt, AesCryptoServiceProvider aes, byte[] encryptedMessage)
         {
             using (var hmacsha256 = new HMACSHA256(aes.Key))
             {
-                var messagePlusSALT = ByteHelpers.CreateSpecialByteArray(encryptedMessage.Length + 32);
-                messagePlusSALT = ByteHelpers.Combine(encryptedMessage, salt);
+                var messagePlusSalt = ByteHelpers.Combine(encryptedMessage, salt);
 
-                return hmacsha256.ComputeHash(messagePlusSALT);
+                return hmacsha256.ComputeHash(messagePlusSalt);
             }
         }
 
@@ -122,7 +120,7 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
 
                         using (var memoryStream = new MemoryStream())
                         {
-                            var encryptedData = CheckHMAC(dataToDecrypt, salt, aes);
+                            var encryptedData = CheckHmac(dataToDecrypt, salt, aes);
                                            
                             var cryptoStream = new CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Write);
 
@@ -146,7 +144,7 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
             }           
         }
 
-        private static byte[] CheckHMAC(byte[] dataToDecrypt, byte[] salt, AesCryptoServiceProvider aes)
+        private static byte[] CheckHmac(byte[] dataToDecrypt, byte[] salt, AesCryptoServiceProvider aes)
         {            
             var hmac = ByteHelpers.CreateSpecialByteArray(32);
             var encryptedData = ByteHelpers.CreateSpecialByteArray(dataToDecrypt.Length - 32);
@@ -154,9 +152,9 @@ namespace HauntedHouseSoftware.TextShredder.CryptoProviders
             Buffer.BlockCopy(dataToDecrypt, 0, hmac, 0, 32);
             Buffer.BlockCopy(dataToDecrypt, 32, encryptedData, 0, dataToDecrypt.Length - 32);
             
-            var newHMAC = CreateHMAC(salt, aes, encryptedData);
+            var newHmac = CreateHmac(salt, aes, encryptedData);
                         
-            if (!ByteHelpers.ByteArrayCompare(hmac, newHMAC))
+            if (!ByteHelpers.ByteArrayCompare(hmac, newHmac))
             {
                 throw new CryptographicException("The authenticated message code doesn't match. \n\nThe message may have been corrupted or tampered with.");
             }

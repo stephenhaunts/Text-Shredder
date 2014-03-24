@@ -17,11 +17,12 @@
 * 
 * Authors: Stephen Haunts
 */
+
+using HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
 using System.Text;
-using HauntedHouseSoftware.TextShredder.CryptoProviders;
 
 namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
 {
@@ -32,7 +33,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [ExpectedException(typeof(ArgumentNullException), "dataToEncrypt")]
         public void EncryptThrowsArgumentNullExceptionIfDataToEncryptIsNull()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             aes.Encrypt(null, null, null, 1000);
         }
 
@@ -40,7 +41,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [ExpectedException(typeof(InvalidOperationException), "dataToEncrypt")]
         public void EncryptThrowsInvalidOperationExceptionIfDataToEncryptIsOfSizeZero()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             var data = new byte[0];
 
             aes.Encrypt(data, null, null, 1000);
@@ -50,7 +51,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [ExpectedException(typeof(ArgumentNullException), "password")]
         public void EncryptThrowsArgumentNullExceptionIfPasswordIsNullOrEmpty()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             var data = new byte[2];
 
             aes.Encrypt(data, null, null, 1000);
@@ -59,7 +60,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [TestMethod]       
         public void EncryptEncryptsDataUsingThePasswordAndTheResultIsDifferentToTheInput()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             var data = new byte[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
             var encryptedData = aes.Encrypt(data, "password", Encoding.ASCII.GetBytes("eryryn78ynr78yn"), 1000);            
 
@@ -70,7 +71,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [ExpectedException(typeof(ArgumentNullException), "dataToDecrypt")]
         public void DecryptThrowsArgumentNullExceptionIfDataToDecryptIsNull()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             aes.Decrypt(null, null, null, 1000);
         }
 
@@ -78,7 +79,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [ExpectedException(typeof(InvalidOperationException), "dataToDecrypt")]
         public void DecryptThrowsInvalidOperationExceptionIfDataToDecryptIsOfSizeZero()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             var data = new byte[0];
 
             aes.Decrypt(data, null, null, 1000);
@@ -88,7 +89,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [ExpectedException(typeof(ArgumentNullException), "password")]
         public void DecryptThrowsArgumentNullExceptionIfPasswordIsNullOrEmpty()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             var data = new byte[2];
 
             aes.Decrypt(data, null, null, 1000);
@@ -97,7 +98,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         [TestMethod]
         public void DecryptDataThatHasBeenEncrypted()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             var originalData = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
             var encryptedData = aes.Encrypt(originalData, "password", Encoding.ASCII.GetBytes("eryryn78ynr78yn"), 1000);
             var decryptedData = aes.Decrypt(encryptedData, "password", Encoding.ASCII.GetBytes("eryryn78ynr78yn"), 1000);

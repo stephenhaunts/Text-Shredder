@@ -17,7 +17,7 @@
 * 
 * Authors: Stephen Haunts
 */
-namespace HauntedHouseSoftware.TextShredder
+namespace HauntedHouseSoftware.TextShredder.Forms
 {
     partial class TextShredderMainForm
     {
