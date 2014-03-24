@@ -17,7 +17,7 @@
 * 
 * Authors: Stephen Haunts
 */
-namespace HauntedHouseSoftware.TextShredder.CryptoProviders
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders
 {
     public interface ISecureHash
     {

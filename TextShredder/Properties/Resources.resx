@@ -114,4 +114,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutDialogBox_linkLabel_LinkClicked" xml:space="preserve">
+    <value>There was an loading the specified link.</value>
+  </data>
+  <data name="AboutDialogBox_linkLabel_LinkClicked_Error_loading_Link" xml:space="preserve">
+    <value>Error loading Link</value>
+  </data>
+  <data name="TextShredderMainForm_ConfirmationPassword_The_passwords_do_not_match_" xml:space="preserve">
+    <value>The passwords do not match.</value>
+  </data>
+  <data name="TextShredderMainForm_EncryptText_There_was_an_error_encrypting_the_message_" xml:space="preserve">
+    <value>There was an error encrypting the message.</value>
+  </data>
+  <data name="TextShredderMainForm_EncryptText_Encryption_Error" xml:space="preserve">
+    <value>Encryption Error</value>
+  </data>
+  <data name="TextShredderMainForm_DecryptText_Message_Tamper_Alert" xml:space="preserve">
+    <value>Message Tamper Alert</value>
+  </data>
+  <data name="TextShredderMainForm_DecryptText_There_was_an_error_decrypting_the_message_" xml:space="preserve">
+    <value>There was an error decrypting the message.</value>
+  </data>
+  <data name="TextShredderMainForm_DecryptText_Decryption_Error" xml:space="preserve">
+    <value>Decryption Error</value>
+  </data>
+  <data name="TextShredderMainForm_OpenTextFile_Error_Reading_from_File" xml:space="preserve">
+    <value>Error Reading from File</value>
+  </data>
+  <data name="TextShredderMainForm_SaveTextFile_Error_Saving_File" xml:space="preserve">
+    <value>Error Saving File</value>
+  </data>
+  <data name="TextShredderMainForm_LoadHelpPage_There_was_an_loading_the_specified_link_" xml:space="preserve">
+    <value>There was an loading the specified link.</value>
+  </data>
+  <data name="TextShredderMainForm_LoadHelpPage_Error_loading_Link" xml:space="preserve">
+    <value>Error loading Link</value>
+  </data>
+  <data name="UpgradeNotice_linkLabel_LinkClicked_There_was_an_loading_the_specified_link_" xml:space="preserve">
+    <value>There was an loading the specified link.</value>
+  </data>
+  <data name="UpgradeNotice_linkLabel_LinkClicked_Error_loading_Link" xml:space="preserve">
+    <value>Error loading Link</value>
+  </data>
 </root>

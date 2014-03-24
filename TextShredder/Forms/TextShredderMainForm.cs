@@ -17,19 +17,15 @@
 * 
 * Authors: Stephen Haunts
 */
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using HauntedHouseSoftware.TextShredder.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
-namespace HauntedHouseSoftware.TextShredder
+namespace HauntedHouseSoftware.TextShredder.Forms
 {
-    public partial class TextShredderMainForm : Form
+    public partial class TextShredderMainForm
     {
-        private UpgradeNotice _upgradeNotice = new UpgradeNotice();
-
         public TextShredderMainForm()
         {
             InitializeComponent();
@@ -80,7 +76,7 @@ namespace HauntedHouseSoftware.TextShredder
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using(AboutDialogBox aboutBox = new AboutDialogBox())
+            using(var aboutBox = new AboutDialogBox())
             {
                 aboutBox.ShowDialog();
             }

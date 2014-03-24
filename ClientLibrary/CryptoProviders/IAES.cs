@@ -17,9 +17,9 @@
 * 
 * Authors: Stephen Haunts
 */
-namespace HauntedHouseSoftware.TextShredder.CryptoProviders
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders
 {
-    public interface IAES
+    public interface IAes
     {
         byte[] Decrypt(byte[] dataToDecrypt, string password, byte[] salt, int pbkdfRounds);
         byte[] Encrypt(byte[] dataToEncrypt, string password, byte[] salt, int pbkdfRounds);

@@ -17,10 +17,11 @@
 * 
 * Authors: Stephen Haunts
 */
+
+using HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
-using HauntedHouseSoftware.TextShredder.CryptoProviders;
 
 namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
 {

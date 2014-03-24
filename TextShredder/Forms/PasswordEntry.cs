@@ -21,6 +21,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using HauntedHouseSoftware.TextShredder.ClientLibrary;
+using HauntedHouseSoftware.TextShredder.ClientLibrary.Passwords;
 
 namespace HauntedHouseSoftware.TextShredder.Forms 
 {
@@ -120,32 +121,32 @@ namespace HauntedHouseSoftware.TextShredder.Forms
             {
                 case PasswordScore.Blank:
                     label.ForeColor = Color.Red;
-                    label.Text = "";
+                    label.Text = @"";
                     break;
 
                 case PasswordScore.Weak:
                     label.ForeColor = Color.Red;
-                    label.Text = "Weak";
+                    label.Text = @"Weak";
                     break;
 
                 case PasswordScore.VeryWeak:
                     label.ForeColor = Color.Red;
-                    label.Text = "Very Weak";
+                    label.Text = @"Very Weak";
                     break;
 
                 case PasswordScore.Medium:
                     label.ForeColor = Color.Orange;
-                    label.Text = "Medium";
+                    label.Text = @"Medium";
                     break;
 
                 case PasswordScore.Strong:
                     label.ForeColor = Color.Orange;
-                    label.Text = "Strong";
+                    label.Text = @"Strong";
                     break;
 
                 case PasswordScore.VeryStrong:
                     label.ForeColor = Color.Green;
-                    label.Text = "Very Strong";
+                    label.Text = @"Very Strong";
                     break;
             }
         }

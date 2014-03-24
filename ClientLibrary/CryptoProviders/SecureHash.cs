@@ -17,10 +17,11 @@
 * 
 * Authors: Stephen Haunts
 */
+
 using System;
 using System.Security.Cryptography;
 
-namespace HauntedHouseSoftware.TextShredder.CryptoProviders
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders
 {
     public class SecureHash : ISecureHash
     {        

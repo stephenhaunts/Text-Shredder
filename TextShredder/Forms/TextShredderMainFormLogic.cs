@@ -17,18 +17,18 @@
 * 
 * Authors: Stephen Haunts
 */
+
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Windows.Forms;
-using HauntedHouseSoftware.TextShredder.ClientLibrary;
-using HauntedHouseSoftware.TextShredder.Forms;
 using System.Drawing;
 using System.IO;
 using System.Security.Cryptography;
+using System.Windows.Forms;
+using HauntedHouseSoftware.TextShredder.ClientLibrary;
+using HauntedHouseSoftware.TextShredder.ClientLibrary.ApplicationSettings;
+using HauntedHouseSoftware.TextShredder.Properties;
 
-namespace HauntedHouseSoftware.TextShredder
+namespace HauntedHouseSoftware.TextShredder.Forms
 {
     public partial class TextShredderMainForm : Form
     {
@@ -36,7 +36,8 @@ namespace HauntedHouseSoftware.TextShredder
         private PasswordEntry _passwordEntry;
         private ApplicationSettings _settings = new ApplicationSettings();
         private bool _deleteTextAfterEncrypt;
-        private const string HELP_URL = "http://stephenhaunts.com/projects/text-shredder/text-shredder-1-0-manual/";
+        private readonly UpgradeNotice _upgradeNotice = new UpgradeNotice();
+        private const string HelpUrl = "http://stephenhaunts.com/projects/text-shredder/text-shredder-1-0-manual/";
 
         private bool SetPassword(bool confirmPassword)
         {
@@ -91,7 +92,7 @@ namespace HauntedHouseSoftware.TextShredder
 
                 if ((password1Match == false) || (password2Match == false))
                 {
-                    MessageBox.Show("The passwords do not match.", "The passwords do not match.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(Resources.TextShredderMainForm_ConfirmationPassword_The_passwords_do_not_match_, Resources.TextShredderMainForm_ConfirmationPassword_The_passwords_do_not_match_, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     return false;
                 }
@@ -117,14 +118,7 @@ namespace HauntedHouseSoftware.TextShredder
 
         private void SetPassword()
         {
-            if (SetPassword(true))
-            {
-                toolStripStatusLabel.Text = "Password Set";
-            }
-            else
-            {
-                toolStripStatusLabel.Text = "Password Not Set";
-            }
+            toolStripStatusLabel.Text = SetPassword(true) ? @"Password Set" : @"Password Not Set";
         }
 
         private void EncryptText()
@@ -138,7 +132,7 @@ namespace HauntedHouseSoftware.TextShredder
             catch (Exception)
             {
                 encryptedText.Text = "";
-                MessageBox.Show("There was an error encrypting the message.", "Encryption Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(Resources.TextShredderMainForm_EncryptText_There_was_an_error_encrypting_the_message_, Resources.TextShredderMainForm_EncryptText_Encryption_Error, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -153,12 +147,12 @@ namespace HauntedHouseSoftware.TextShredder
             catch(CryptographicException ex)
             {
                 decryptedText.Text = "";
-                MessageBox.Show(ex.Message, "Message Tamper Alert", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show(ex.Message, Resources.TextShredderMainForm_DecryptText_Message_Tamper_Alert, MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             catch (Exception)
             {
                 decryptedText.Text = "";
-                MessageBox.Show("There was an error decrypting the message.", "Decryption Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
+                MessageBox.Show(Resources.TextShredderMainForm_DecryptText_There_was_an_error_decrypting_the_message_, Resources.TextShredderMainForm_DecryptText_Decryption_Error, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
             }        
         }
         private void PasteFromClipboard()
@@ -250,7 +244,7 @@ namespace HauntedHouseSoftware.TextShredder
                 }
                 catch
                 {
-                    MessageBox.Show(String.Format("There was an error reading from the file <{0}>", openFileDialog.FileName), "Error Reading from File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(String.Format("There was an error reading from the file <{0}>", openFileDialog.FileName), Resources.TextShredderMainForm_OpenTextFile_Error_Reading_from_File, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -265,7 +259,7 @@ namespace HauntedHouseSoftware.TextShredder
                 }
                 catch
                 {
-                    MessageBox.Show(String.Format("There was an error saving the file <{0}>", saveFileDialog.FileName), "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(String.Format("There was an error saving the file <{0}>", saveFileDialog.FileName), Resources.TextShredderMainForm_SaveTextFile_Error_Saving_File, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -273,12 +267,12 @@ namespace HauntedHouseSoftware.TextShredder
         {
             try
             {
-                ProcessStartInfo sInfo = new ProcessStartInfo(HELP_URL);
+                var sInfo = new ProcessStartInfo(HelpUrl);
                 Process.Start(sInfo);
             }
             catch
             {
-                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.TextShredderMainForm_LoadHelpPage_There_was_an_loading_the_specified_link_, Resources.TextShredderMainForm_LoadHelpPage_Error_loading_Link, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

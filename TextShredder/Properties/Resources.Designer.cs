@@ -59,5 +59,131 @@ namespace HauntedHouseSoftware.TextShredder.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an loading the specified link..
+        /// </summary>
+        internal static string AboutDialogBox_linkLabel_LinkClicked {
+            get {
+                return ResourceManager.GetString("AboutDialogBox_linkLabel_LinkClicked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading Link.
+        /// </summary>
+        internal static string AboutDialogBox_linkLabel_LinkClicked_Error_loading_Link {
+            get {
+                return ResourceManager.GetString("AboutDialogBox_linkLabel_LinkClicked_Error_loading_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The passwords do not match..
+        /// </summary>
+        internal static string TextShredderMainForm_ConfirmationPassword_The_passwords_do_not_match_ {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_ConfirmationPassword_The_passwords_do_not_match_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decryption Error.
+        /// </summary>
+        internal static string TextShredderMainForm_DecryptText_Decryption_Error {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_DecryptText_Decryption_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message Tamper Alert.
+        /// </summary>
+        internal static string TextShredderMainForm_DecryptText_Message_Tamper_Alert {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_DecryptText_Message_Tamper_Alert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error decrypting the message..
+        /// </summary>
+        internal static string TextShredderMainForm_DecryptText_There_was_an_error_decrypting_the_message_ {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_DecryptText_There_was_an_error_decrypting_the_message_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Encryption Error.
+        /// </summary>
+        internal static string TextShredderMainForm_EncryptText_Encryption_Error {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_EncryptText_Encryption_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error encrypting the message..
+        /// </summary>
+        internal static string TextShredderMainForm_EncryptText_There_was_an_error_encrypting_the_message_ {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_EncryptText_There_was_an_error_encrypting_the_message_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading Link.
+        /// </summary>
+        internal static string TextShredderMainForm_LoadHelpPage_Error_loading_Link {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_LoadHelpPage_Error_loading_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an loading the specified link..
+        /// </summary>
+        internal static string TextShredderMainForm_LoadHelpPage_There_was_an_loading_the_specified_link_ {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_LoadHelpPage_There_was_an_loading_the_specified_link_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Reading from File.
+        /// </summary>
+        internal static string TextShredderMainForm_OpenTextFile_Error_Reading_from_File {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_OpenTextFile_Error_Reading_from_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Saving File.
+        /// </summary>
+        internal static string TextShredderMainForm_SaveTextFile_Error_Saving_File {
+            get {
+                return ResourceManager.GetString("TextShredderMainForm_SaveTextFile_Error_Saving_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading Link.
+        /// </summary>
+        internal static string UpgradeNotice_linkLabel_LinkClicked_Error_loading_Link {
+            get {
+                return ResourceManager.GetString("UpgradeNotice_linkLabel_LinkClicked_Error_loading_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an loading the specified link..
+        /// </summary>
+        internal static string UpgradeNotice_linkLabel_LinkClicked_There_was_an_loading_the_specified_link_ {
+            get {
+                return ResourceManager.GetString("UpgradeNotice_linkLabel_LinkClicked_There_was_an_loading_the_specified_link_", resourceCulture);
+            }
+        }
     }
 }

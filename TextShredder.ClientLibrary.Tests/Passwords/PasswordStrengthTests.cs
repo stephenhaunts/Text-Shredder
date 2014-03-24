@@ -18,6 +18,7 @@
 * Authors: Stephen Haunts
 */
 using System;
+using HauntedHouseSoftware.TextShredder.ClientLibrary.Passwords;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests

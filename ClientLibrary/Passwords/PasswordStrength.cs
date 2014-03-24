@@ -17,18 +17,16 @@
 * 
 * Authors: Stephen Haunts
 */
-using System.Text.RegularExpressions;
+
 using System;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Passwords
 {
-    public sealed class PasswordStrength
+    public static class PasswordStrength
     {
-        private PasswordStrength()
-        {
-        }
-
-        private readonly static string[] _weakPasswordList = { "password", "123456", "1234567", "12345678", "abc123", "qwerty", "monkey", "letmein", "dragon", "111111", "baseball", "iloveyou", "trustno1", "sunshine", "master", "123123", "welcome", "shadow", "ashley", "football", "jesus", "michael", "ninja", "mustang", "password1" };
+        private readonly static string[] WeakPasswordList = { "password", "123456", "1234567", "12345678", "abc123", "qwerty", "monkey", "letmein", "dragon", "111111", "baseball", "iloveyou", "trustno1", "sunshine", "master", "123123", "welcome", "shadow", "ashley", "football", "jesus", "michael", "ninja", "mustang", "password1" };
 
         public static PasswordScore CheckStrength(string password)
         {
@@ -85,9 +83,9 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 
         private static bool IsPasswordInWeakList(string password)
         {
-            foreach (string weakPassword in _weakPasswordList)
+            foreach (string weakPassword in WeakPasswordList)
             {
-                if (string.Compare(password, weakPassword, System.StringComparison.OrdinalIgnoreCase) == 0)
+                if (string.Compare(password, weakPassword, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     return true;
                 }
@@ -103,20 +101,20 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 
         private static bool PerformSubstitutions(string weakPassword, string password)
         {
-            var vowels =            new char[] { 'A', 'a', 'e', 'i', 'o', 's', 'S' };
-            var vowelSubstitution = new char[] { '4', '@', '3', '1', '0', '$', '5' };
+            var vowels =            new[] { 'A', 'a', 'e', 'i', 'o', 's', 'S' };
+            var vowelSubstitution = new[] { '4', '@', '3', '1', '0', '$', '5' };
 
             ReplaceLettersWithSubStitutions(password, vowels, vowelSubstitution);
 
-            if (string.Compare(ReplaceLettersWithSubStitutions(weakPassword, vowels, vowelSubstitution), password, System.StringComparison.OrdinalIgnoreCase) == 0)
+            if (string.Compare(ReplaceLettersWithSubStitutions(weakPassword, vowels, vowelSubstitution), password, StringComparison.OrdinalIgnoreCase) == 0)
             {
                 return true;
             }
 
-            var qwerty = new char[] { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P' };
-            var qwertySubstitution = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+            var qwerty = new[] { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P' };
+            var qwertySubstitution = new[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
 
-            if (string.Compare(ReplaceLettersWithSubStitutions(weakPassword, qwerty, qwertySubstitution), password, System.StringComparison.OrdinalIgnoreCase) == 0)
+            if (string.Compare(ReplaceLettersWithSubStitutions(weakPassword, qwerty, qwertySubstitution), password, StringComparison.OrdinalIgnoreCase) == 0)
             {
                 return true;
             }
@@ -134,7 +132,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 
                 for (var q = 0; q < original.Length; q++)
                 {
-                    if (String.Compare(c.ToString(), original[q].ToString(), StringComparison.Ordinal) == 0)
+                    if (String.Compare(c.ToString(CultureInfo.InvariantCulture), original[q].ToString(CultureInfo.InvariantCulture), StringComparison.Ordinal) == 0)
                     {
                         newPassword = newPassword + substitution[q];
                         numberAdded = true;

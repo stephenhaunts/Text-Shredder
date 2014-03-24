@@ -19,7 +19,7 @@
 */
 using System;
 using System.Security.Cryptography;
-using HauntedHouseSoftware.TextShredder.CryptoProviders;
+using Aes = HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders.Aes;
 
 namespace HauntedHouseSoftware.TextShredder.ClientLibrary
 {
@@ -39,7 +39,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 throw new ArgumentNullException("password");
             }
 
-            var aes = new AES();
+            var aes = new Aes();
 
             using (var rngCsp = new RNGCryptoServiceProvider())
             {
@@ -49,8 +49,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 var compressed = Compressor.Compress(ByteHelpers.GetBytes(textToEncrypt));
 
                 var encrpytedMessage = aes.Encrypt(compressed, Convert.ToBase64String(password), salt, 70000);
-                var fullMessage = ByteHelpers.CreateSpecialByteArray(encrpytedMessage.Length + 32);
-                fullMessage = ByteHelpers.Combine(salt, encrpytedMessage);
+                byte[] fullMessage = ByteHelpers.Combine(salt, encrpytedMessage);
 
                 return Convert.ToBase64String(fullMessage);
             }                     
@@ -68,7 +67,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary
                 throw new ArgumentNullException("password");
             }
 
-            var aes = new AES();
+            var aes = new Aes();
 
             var convertFromBase64String = Convert.FromBase64String(textToDecrypt);
 
