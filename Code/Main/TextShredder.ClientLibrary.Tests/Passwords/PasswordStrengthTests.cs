@@ -17,11 +17,11 @@
 * 
 * Authors: Stephen Haunts
 */
-using System;
+
 using HauntedHouseSoftware.TextShredder.ClientLibrary.Passwords;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests.Passwords
 {
     [TestClass]
     public class PasswordStrengthTests
@@ -87,13 +87,13 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         }
 
         [TestMethod]
-        public void CheckStrengthReturnsWeakForPasswordOfTRUSTNO1OnTheWeakPasswordList()
+        public void CheckStrengthReturnsWeakForPasswordOfTrustno1OnTheWeakPasswordList()
         {
             Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("TRUSTNO1"));
         }
 
         [TestMethod]
-        public void CheckStrengthReturnsWeakForPasswordOfP455w9rdOnTheWeakPasswordList()
+        public void CheckStrengthReturnsWeakForPasswordOfP455W9RdOnTheWeakPasswordList()
         {
             Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("p455w0rd"));
         }
@@ -105,7 +105,7 @@ namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
         }
 
         [TestMethod]
-        public void CheckStrengthReturnsWeakForPasswordOfW3lc0m3TheWeakPasswordList()
+        public void CheckStrengthReturnsWeakForPasswordOfW3Lc0M3TheWeakPasswordList()
         {
             Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("w3lc0m3"));
         }

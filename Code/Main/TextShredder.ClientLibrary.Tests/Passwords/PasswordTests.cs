@@ -17,12 +17,13 @@
 * 
 * Authors: Stephen Haunts
 */
+
 using System;
+using System.Collections;
 using HauntedHouseSoftware.TextShredder.ClientLibrary.Passwords;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections;
 
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests.Passwords
 {
     [TestClass]
     public class PasswordTests

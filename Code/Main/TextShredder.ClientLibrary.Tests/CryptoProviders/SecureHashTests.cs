@@ -18,12 +18,12 @@
 * Authors: Stephen Haunts
 */
 
-using HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
+using HauntedHouseSoftware.TextShredder.ClientLibrary.CryptoProviders;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests
+namespace HauntedHouseSoftware.TextShredder.ClientLibrary.Tests.CryptoProviders
 {
     [TestClass]
     public class SecureHashTests
