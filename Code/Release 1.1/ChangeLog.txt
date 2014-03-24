@@ -1,0 +1,39 @@
+Version 1.1
+-----------
+
+[X] - Added a HMAC to the encrypted message. The ciphertext + original salt is HMACed using the AES key. When the message is
+      decrypted, the HMAC is recomputed and compared to the original. If it doesn't match then the message has been corrupted
+	  or tampered with.
+
+[X] - Removed BCrypt from the internal password hash. After peer review it was deemed un-neccesary as a PBKFD (Rfc2898) is used
+      with 70,000 iterations to generate the AES key.
+
+[X] - When setting up the AesCryptoServiceProvider, make the cipher mode and padding schemes more apparent. This application uses
+      AES set to CBC mode with PKCS7 padding.
+
+[X] - Add a word wrap option to the file menu. This enables/disables word wrap on all the text boxes.
+
+[X] - When the user first loads up Text Shredder, show an upgrade warning stating that their message recipients must be using the same
+      version of the tool. They can click on a "Do not show this again" checkbox to disable the warning then they next run the program.
+
+
+Version 1.0
+------------
+
+[X] - Setup passwords. These require double entry to confirm. Only password 1 is mandetory.
+
+[X] - Allow the use of an on screen keyboard to guard against key loggers.
+
+[X] - Allow text to be in encrypted usign the current set password.
+
+[X] - Allow text to decrypted using the current set password.
+
+[X] - Implement a 'copy cipher text to clipboard' button.
+
+[X] - Implement a 'paste cipher text to screen' button.
+
+[X] - Implement a 'delete plain text from view' button that removes the plain text from the screen once it has been encrypted.
+
+[X] - Implement basic themes to make it harder for someone to see what is happening over your shoulder.
+
+[X] - Save settings on application exit. This includes the screen size and co-ordinates, plus the window themes.
