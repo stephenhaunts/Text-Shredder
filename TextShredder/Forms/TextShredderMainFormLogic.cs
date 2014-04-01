@@ -37,7 +37,7 @@ namespace HauntedHouseSoftware.TextShredder.Forms
         private ApplicationSettings _settings = new ApplicationSettings();
         private bool _deleteTextAfterEncrypt;
         private readonly UpgradeNotice _upgradeNotice = new UpgradeNotice();
-        private const string HelpUrl = "http://stephenhaunts.com/projects/text-shredder/text-shredder-1-0-manual/";
+        private const string HelpUrl = "http://stephenhaunts.com/projects/text-shredder/text-shredder-1-1-manual/";
 
         private bool SetPassword(bool confirmPassword)
         {
